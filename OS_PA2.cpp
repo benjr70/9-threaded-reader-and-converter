@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <pthread.h>
+#include <string>
 
 using namespace std;
 
@@ -15,6 +16,10 @@ int NUM_THREADS = 3;
 
 
 int main(){
+
+	string BufferA[50];
+	string BufferB[50];	
+
 	pthread_t Rid[NUM_THREADS];
 	pthread_t Cid[NUM_THREADS];
 	pthread_t Wid[NUM_THREADS];
