@@ -30,20 +30,20 @@ int main(){
 
 	for(int i = 0; i < NUM_THREADS; i++){
 		pthread_create(&Rid[i], NULL, reader, NULL);
-		pthread_join(Rid[i], NULL);
+		//pthread_join(Rid[i], NULL);
 		//cout << Rid[i] <<"\n";
 		pthread_create(&Cid[i], NULL, converter,NULL);
-		pthread_join(Cid[i], NULL);
+		//pthread_join(Cid[i], NULL);
 		//cout << Cid[i] <<"\n";
 		pthread_create(&Wid[i], NULL, writer,NULL);
-		pthread_join(Wid[i], NULL);
+		//pthread_join(Wid[i], NULL);
 		//cout << Wid[i] <<"\n";
 	}
 
 	for(int i = 0; i < NUM_THREADS; i++){
-		//pthread_join(Rid[i], NULL);
-		//pthread_join(Cid[i], NULL);
-		//pthread_join(Wid[i], NULL);
+		pthread_join(Rid[i], NULL);
+		pthread_join(Cid[i], NULL);
+		pthread_join(Wid[i], NULL);
 	}
 cout << bufferAIndex <<"\n";
 	return 0;
