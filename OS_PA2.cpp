@@ -48,7 +48,7 @@ int main(){
 void *reader(void *arg){
 
 	pthread_mutex_lock(&mutex1); // mutex lock
-	cout << "reader\n";
+	cout << "Enter Line: ";
 	getline(cin,BufferA[bufferAIndex]);
 	bufferAIndex++;
 	pthread_mutex_unlock(&mutex1); // mutex unlock
@@ -67,7 +67,7 @@ void *converter(void *arg){
 		if(bufferAIndex != 0){ 
 		
 			pthread_mutex_lock(&mutex1); // mutex lock
-			cout << "converter\n";
+			//cout << "converter\n";
 			bufferAIndex--;
 			int x = 0;
 			while(BufferA[bufferAIndex][x] != '\0'){
@@ -96,10 +96,10 @@ void *writer(void *arg){
 
 	if(bufferBIndex != 0){
 		pthread_mutex_lock(&mutex1); //mutex lock
-		cout << "writer\n";
+		//cout << "writer\n";
 		bufferBIndex--;
-		cout << BufferB[bufferBIndex] << ": ";
-		cout << bufferBIndex <<"\n";
+		cout << BufferB[bufferBIndex];// << ": ";
+		cout <<"\n";
 		pthread_mutex_unlock(&mutex1); //mutex unlock
 	}
 
